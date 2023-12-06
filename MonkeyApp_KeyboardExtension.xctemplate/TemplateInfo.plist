@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Identifier</key>
+	<string>com.tencent.monkeydev.keyboard</string>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.keyboardextensionios</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>This template builds a custom keyboard that users can choose in place of the system keyboard.</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>languageChoice</string>
+		</dict>
+	</array>
+	<key>Nodes</key>
+	<array>
+		<string>Info.plist:NSExtension</string>
+		<string>Scripts/packKeyboard.sh</string>
+		<string>TargetApp/put ipa or app here</string>
+	</array>
+	<key>Definitions</key>
+	<dict>
+		<key>Info.plist:NSExtension</key>
+		<string>&lt;key&gt;NSExtension&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSExtensionAttributes&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;PrimaryLanguage&lt;/key&gt;
+        &lt;string&gt;en-US&lt;/string&gt;
+        &lt;key&gt;IsASCIICapable&lt;/key&gt;
+        &lt;false/&gt;
+        &lt;key&gt;PrefersRightToLeft&lt;/key&gt;
+        &lt;false/&gt;
+        &lt;key&gt;RequestsOpenAccess&lt;/key&gt;
+        &lt;false/&gt;
+    &lt;/dict&gt;
+    &lt;key&gt;NSExtensionPointIdentifier&lt;/key&gt;
+    &lt;string&gt;com.apple.keyboard-service&lt;/string&gt;
+    &lt;key&gt;NSExtensionPrincipalClass&lt;/key&gt;
+    &lt;string&gt;___VARIABLE_moduleNamePrefixForClasses:XML___KeyboardViewController&lt;/string&gt;
+&lt;/dict&gt;
+</string>
+		<key>Scripts/packKeyboard.sh</key>
+		<dict>
+			<key>TargetIndices</key>
+			<array/>
+			<key>Group</key>
+			<array>
+				<string>Scripts</string>
+			</array>
+			<key>Path</key>
+			<string>Scripts/packKeyboard.sh</string>
+		</dict>
+		<key>TargetApp/put ipa or app here</key>
+		<dict>
+			<key>TargetIndices</key>
+			<array/>
+			<key>Group</key>
+			<array>
+				<string>TargetApp</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>SharedSettings</key>
+			<dict>
+				<key>MONKEYDEV_DEFAULT_BUNDLEID</key>
+				<string>NO</string>
+				<key>MONKEYDEV_ADD_SUBSTRATE</key>
+				<string>YES</string>
+				<key>MONKEYDEV_TARGET_APP</key>
+				<string>___VARIABLE_TargetAppInfo___</string>
+				<key>MONKEYDEV_INSERT_DYLIB</key>
+				<string>YES</string>
+				<key>PODS_CONFIGURATION_BUILD_DIR</key>
+				<string>$BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)</string>
+				<key>MONKEYDEV_CLASS_DUMP</key>
+				<string>NO</string>
+				<key>MONKEYDEV_RESTORE_SYMBOL</key>
+				<string>NO</string>
+				<key>PODS_ROOT</key>
+				<string>${SRCROOT}/Pods</string>
+				<key>ENABLE_BITCODE</key>
+				<string>NO</string>
+				<key>INFOPLIST_FILE</key>
+				<string>___PACKAGENAME___/info.plist</string>
+				<key>GENERATE_INFOPLIST_FILE</key>
+				<string>NO</string>
+			</dict>
+			<key>BuildPhases</key>
+			<array>
+				<dict>
+					<key>RunOnlyForDeploymentPostprocessing</key>
+					<false/>
+					<key>Class</key>
+					<string>ShellScript</string>
+					<key>ShellPath</key>
+					<string>/bin/sh</string>
+					<key>ShellScript</key>
+					<string>${SRCROOT}/___PACKAGENAME___/Scripts/packKeyboard.sh</string>
+				</dict>
+				<dict>
+					<key>RunOnlyForDeploymentPostprocessing</key>
+					<false/>
+					<key>Class</key>
+					<string>ShellScript</string>
+					<key>ShellPath</key>
+					<string>/bin/sh</string>
+					<key>ShellScript</key>
+					<string>${SRCROOT}/___PACKAGENAME___/Scripts/packKeyboard.sh codesign</string>
+				</dict>
+			</array>
+			<key>TargetIdentifier</key>
+			<string>com.monkey.monkeydev.TargetKeyboard</string>
+		</dict>
+	</array>
+	<key>Image</key>
+	<dict>
+		<key>SystemSymbolName</key>
+		<string>keyboard</string>
+	</dict>
+</dict>
+</plist>

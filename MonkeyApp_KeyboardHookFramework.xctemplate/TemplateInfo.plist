@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.Xcode3.ProjectTemplateUnitKind</string>
+	<key>Identifier</key>
+	<string>com.tencent.monkeydev.hookKBFramework</string>
+	<key>Ancestors</key>
+	<array>
+		<string>com.apple.dt.unit.frameworkBase</string>
+		<string>com.apple.dt.unit.languageChoice</string>
+		<string>com.apple.dt.unit.iosBase</string>
+	</array>
+	<key>Concrete</key>
+	<true/>
+	<key>Description</key>
+	<string>This template creates a framework.</string>
+	<key>SortOrder</key>
+	<integer>1</integer>
+	<key>AssociatedTargetSpecification</key>
+	<dict>
+		<key>PopUpTitle</key>
+		<string>Embed in Application:</string>
+		<key>PopUpDescription</key>
+		<string>The application target that will host this new framework. The application will be set up to link to and embed the new framework.</string>
+		<key>AllowableProductTypes</key>
+		<array>
+			<string>com.apple.product-type.application</string>
+			<string>com.apple.product-type.application.messages</string>
+		</array>
+		<key>AllowablePlatforms</key>
+		<array>
+			<string>com.apple.platform.iphoneos</string>
+		</array>
+		<key>AssociatedTargetIsDependent</key>
+		<true/>
+		<key>AssociatedTargetNeedsProductBuildPhaseInjection</key>
+		<true/>
+	</dict>
+	<key>Options</key>
+	<array/>
+	<key>Nodes</key>
+	<array>
+		<string>___PACKAGENAMEASIDENTIFIER___S.h</string>
+		<string>___PACKAGENAMEASIDENTIFIER___S.m</string>
+	</array>
+	<key>Targets</key>
+	<array>
+		<dict>
+			<key>TargetIdentifier</key>
+			<string>com.apple.dt.iosLibraryOrFrameworkTarget</string>
+			<key>SharedSettings</key>
+			<dict>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+			</dict>
+		</dict>
+	</array>
+	<key>Definitions</key>
+	<dict>
+		<key>___TARGETNAME:c99ExtIdentifier___.h</key>
+		<dict>
+			<key>TargetIdentifiers</key>
+			<array>
+				<string>com.apple.dt.iosLibraryOrFrameworkTarget</string>
+			</array>
+			<key>BuildAttributes</key>
+			<array>
+				<string>Public</string>
+			</array>
+		</dict>
+		<key>___PACKAGENAMEASIDENTIFIER___S.h</key>
+		<dict>
+			<key>Path</key>
+			<string>___PACKAGENAMEASIDENTIFIER___S.h</string>
+		</dict>
+		<key>___PACKAGENAMEASIDENTIFIER___S.m</key>
+		<dict>
+			<key>Path</key>
+			<string>___PACKAGENAMEASIDENTIFIER___S.m</string>
+		</dict>
+	</dict>
+	<key>Image</key>
+	<dict>
+		<key>BundleImageName</key>
+		<string>framework</string>
+		<key>BundleIdentifier</key>
+		<string>com.apple.dt.IDEKit</string>
+	</dict>
+	<key>Project</key>
+	<dict>
+		<key>SharedSettings</key>
+		<dict>
+			<key>MonkeyDevTheosPath</key>
+			<string>/opt/theos</string>
+			<key>TARGETED_DEVICE_FAMILY</key>
+			<string>1,2</string>
+			<key>GCC_WARN_ABOUT_MISSING_PROTOTYPES</key>
+			<string>YES</string>
+			<key>EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES</key>
+			<string>*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj</string>
+			<key>HEADER_SEARCH_PATHS</key>
+			<string>$(inherited) $(MonkeyDevPath)/include $(MonkeyDevTheosPath)/vendor/include/**</string>
+			<key>LIBRARY_SEARCH_PATHS</key>
+			<string>$(inherited) $(MonkeyDevPath)/Frameworks $(MonkeyDevTheosPath)/vendor/lib/**</string>
+			<key>MonkeyDevPath</key>
+			<string>/opt/MonkeyDev</string>
+			<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+			<string>8.0</string>
+			<key>FRAMEWORK_SEARCH_PATHS</key>
+			<string>$(inherited) $(MonkeyDevPath)/Frameworks/** $(MonkeyDevPath)/Librarys/** $(MonkeyDevTheosPath)/vendor/lib</string>
+			<key>ENABLE_BITCODE</key>
+			<string>NO</string>
+		</dict>
+		<key>SDK</key>
+		<string>iphoneos</string>
+		<key>Configurations</key>
+		<dict>
+			<key>Debug</key>
+			<dict>
+				<key>OTHER_LDFLAGS</key>
+				<string>$(inherited)  -weak_library /usr/lib/libc++.dylib -weak_library $(MonkeyDevPath)/Frameworks/libsubstrate.dylib</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<string>DEBUG=1 $(inherited)</string>
+			</dict>
+			<key>Release</key>
+			<dict/>
+		</dict>
+	</dict>
+</dict>
+</plist>
